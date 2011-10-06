@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<perspective>
+	<models>
+		<updatemodel name="modules_generic/rootfolder">
+			<addchild model="modules_featurepackb/comparablepropertyfolder" />
+			<adddrop model="modules_featurepackb/comparablepropertyfolder" action="move" />
+		</updatemodel>
+		<model name="modules_featurepackb/comparablepropertyfolder">
+			<children>
+				<child model="modules_featurepackb/comparableproperty" />
+			</children>
+			<contextactions>
+				<contextaction name="edit" />
+				<contextaction name="openFolder" />
+			</contextactions>
+		</model>
+		<model name="modules_featurepackb/comparableproperty">
+			<contextactions>
+				<contextaction name="edit" />
+				<contextaction name="deactivated" />
+				<contextaction name="reactivate" />
+			</contextactions>
+		</model>
+	</models>
+</perspective>

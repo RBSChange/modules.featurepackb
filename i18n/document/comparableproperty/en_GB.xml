@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.featurepackb.document.comparableproperty" lcid="en_GB">
+  <include id="m.generic.document.document"/>
+  <key id="document-name">comparableproperty</key>
+  <key id="label">[TO TRANSLATE] label</key>
+  <key id="label-help">[TO TRANSLATE] label-help</key>
+  <key id="class">[TO TRANSLATE] class</key>
+  <key id="class-help">[TO TRANSLATE] class-help</key>
+  <key id="parametersserialized">[TO TRANSLATE] parametersSerialized</key>
+  <key id="parametersserialized-help">[TO TRANSLATE] parametersSerialized-help</key>
+</i18n>

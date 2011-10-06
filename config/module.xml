@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<module>
+		<enabled>true</enabled>
+		<visible>false</visible>
+		<icon>package</icon>
+	</module>
+	<project>
+		<entry name="productListComparisonClass">catalog_SessionProductList</entry>
+		<entry name="productListComparisonPersist">false</entry>
+		<entry name="productListComparisonMaxCount">25</entry>
+	</project>
+</config>

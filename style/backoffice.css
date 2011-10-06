@@ -1,0 +1,6 @@
+treechildren::-moz-tree-image(modules_featurepackb_comparableproperty){
+	list-style-image: url(/changeicons/small/document.png);
+}
+treechildren::-moz-tree-image(modules_featurepackb_comparablepropertyfolder){
+	list-style-image: url(/changeicons/small/folder.png);
+}

@@ -1,0 +1,77 @@
+		Activation de la fonction de comparaison
+		
+I. Utilisation des templates standards
+
+Si vous utilisez les templates standards pour les fiches produits et listes de produits, exécutez simplement la commande suivante qui copiera une version modifiée des templates dans le dossier override :
+
+	featurepackb.update-override
+
+
+
+II. Mise à jour de tempaltes spécifiques
+
+Si vous avec des versions spécifiques des templates, voici les modifications à apporter :
+
+1) Sur les templates de détail des différents types de produits comparables
+
+2.1) Bouton d'ajout à la liste de comparaison
+
+#
+# Ajouter
+#
+		<form class="product-form" change:link="module featurepackb; action UpdateList" method="post">
+			<ol>
+				<li>
+					<input type="hidden" name="listName" value="featurepackb_comparison" />
+					<input type="hidden" name="backurl" change:currentPageLink="" />
+					<input type="hidden" value="${product/getId}" name="productIds[]" />
+					<input type="hidden" value="add" name="mode" />
+					<input type="submit" name="addToList" class="button" value="${trans:m.featurepackb.fo.add-to-comparison-list,ucf}" title="${trans:m.featurepackb.fo.add-to-comparison-list,ucf}" />					
+				</li>
+			</ol>
+		</form>
+		
+2) Sur les templates de liste de produits
+
+2.1) Ajout du bloc de messages + inclusion des javascripts
+
+#
+# Rechercher
+#
+<tal:block change:block="" module="order" name="CartMessages" />
+
+#	
+# Ajouter après
+#
+<tal:block change:block="" module="website" name="messages" container="" />
+<script change:javascript="head 'modules.featurepackb.lib.js.product-list'"></script>
+
+2.2) Mise à jour du formulaire
+
+#
+# Sur la balise form, ajouter l'attribut
+#
+data-addtocomparison-url="${actionurl:'featurepackb','UpdateList',listName='featurepackb_comparison',attr,backurl=currenturl:}"
+
+2.3) Bouton d'ajout de la sélection à la liste
+
+#
+# Rechercher les boutons d'actions globales
+#
+		<div class="list-buttons" tal:repeat="button displayConfig/globalButtons">
+			<input class="button" name="catalogParam[${button/name}]" type="submit" value="${button/label}" /> ${button/help}
+		</div>
+		
+#
+# Ajouter après
+#
+		<div class="list-buttons hidden-without-js">
+			<input class="button" name="mode[add]" type="submit" value="${trans:m.featurepackb.fo.add-to-comparison-list,ucf,attr}" onclick="onGlobalAddToComparisonButtonClick(this);" /> ${trans:m.featurepackb.fo.add-to-comparison-list-help,ucf}
+		</div>
+
+2.4) Bouton d'ajout individuel d'un produit à la liste
+
+#
+# Ajouter
+#
+<a class="button" change:link="module featurepackb; action UpdateList; listName 'featurepackb_comparison'; mode 'add'; productIds[] id; backurl currenturl:">${trans:m.featurepackb.fo.add-to-comparisons,ucf}</a>

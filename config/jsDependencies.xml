@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scripts>
+	<script name="modules.featurepackb.lib.js.product-comparison">
+		<dependencies>
+			<dependency name="modules.website.lib.js.jquery-noconflict" />
+		</dependencies>
+	</script>
+	<script name="modules.featurepackb.lib.js.product-list">
+		<dependencies>
+			<dependency name="modules.website.lib.js.jquery-noconflict" />
+		</dependencies>
+	</script>
+</scripts>

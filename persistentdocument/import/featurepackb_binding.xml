@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <binding fileName="modules/generic/persistentdocument/import/generic_binding.xml"/>
+  <binding name="comparableproperty" className="featurepackb_ComparablepropertyScriptDocumentElement"/>
+  <binding name="parameter" className="featurepackb_ScriptParameterElement"/>
+  <binding name="comparablepropertyfolder" className="featurepackb_ComparablepropertyfolderScriptDocumentElement"/>
+</script>

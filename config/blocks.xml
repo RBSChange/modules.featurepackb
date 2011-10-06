@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blocks>
+	<block type="modules_featurepackb_ProductComparison" icon="list-block">
+		<parameters>
+			<parameter name="showQuantitySelector" type="Boolean" default-value="true" />
+			<parameter name="restrictProductsToContext" type="Boolean" default-value="false" />
+			<parameter name="comparableProperties" type="modules_featurepackb/comparableproperty" moduleselector="catalog" rows="10" max-occurs="-1" />
+		</parameters>
+	</block>
+</blocks>
