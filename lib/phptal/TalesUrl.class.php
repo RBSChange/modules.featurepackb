@@ -32,7 +32,7 @@ class featurepack_TalesUrl implements PHPTAL_Tales
 	}
 	
 	/**
-	 * actionurl: modifier.
+	 * currenturl: modifier.
 	 */
 	static public function currenturl($src, $nothrow)
 	{
