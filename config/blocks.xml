@@ -7,4 +7,5 @@
 			<parameter name="comparableProperties" type="modules_featurepackb/comparableproperty" moduleselector="catalog" rows="10" max-occurs="-1" />
 		</parameters>
 	</block>
+	<block type="modules_featurepackb_ShippingModeConfigurationContainer" hidden="true" />
 </blocks>
