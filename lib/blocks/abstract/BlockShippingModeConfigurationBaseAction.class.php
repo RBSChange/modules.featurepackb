@@ -16,15 +16,7 @@ abstract class featurepackb_BlockShippingModeConfigurationBaseAction extends ord
 		if ($request->getAttribute('hasPredefinedShippingMode'))
 		{
 			$mode = $request->getParameter('mode');		
-			$lines = $cart->getCartLineArrayByShippingMode($mode);
-			if ($cart->canSelectShippingModeId() && $cart->getShippingModeId() == $mode->getId())
-			{
-				$shippingArray = $cart->getShippingArray();
-				foreach ($shippingArray[0]['lines'] as $lineNumber)
-				{
-					$lines[] = $cart->getCartLine($lineNumber);
-				}
-			}
+			$lines = featurepackb_ShippingModeConfigurationService::getInstance()->getCartLinesForMode($cart, $mode);
 			$request->setAttribute('lines', $lines);
 		}
 		else

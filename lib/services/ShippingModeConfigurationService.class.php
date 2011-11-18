@@ -58,7 +58,7 @@ class featurepackb_ShippingModeConfigurationService extends BaseService
 	}
 	
 	/**
-	 * @param order_CartInfos $cart
+	 * @param order_CartInfo $cart
 	 * @param integer $modeId
 	 * @return boolean
 	 */
@@ -69,7 +69,7 @@ class featurepackb_ShippingModeConfigurationService extends BaseService
 	}
 	
 	/**
-	 * @param order_CartInfos $cart
+	 * @param order_CartInfo $cart
 	 * @param integer $modeId
 	 * @return boolean
 	 */
@@ -81,7 +81,7 @@ class featurepackb_ShippingModeConfigurationService extends BaseService
 	}
 
 	/**
-	 * @param order_CartInfos $cart
+	 * @param order_CartInfo $cart
 	 */
 	public function clearCheckedModeIds($cart)
 	{
@@ -89,7 +89,7 @@ class featurepackb_ShippingModeConfigurationService extends BaseService
 	}
 	
 	/**
-	 * @param order_CartInfos $cart
+	 * @param order_CartInfo $cart
 	 * @return array
 	 */
 	protected function getCheckedModeIds($cart)
@@ -100,50 +100,75 @@ class featurepackb_ShippingModeConfigurationService extends BaseService
 	}
 	
 	/**
-	 * @param order_CartInfos $cart
+	 * @param order_CartInfo $cart
 	 * @param integer $modeId
 	 * @param string $key
 	 * @param mixed $value
 	 */
 	public function setConfiguration($cart, $modeId, $key, $value)
 	{
-		Framework::fatal(__METHOD__ . ' $modeId = ' . $modeId . ', $key = ' . $key . ', $value = ' . var_export($value, true));
-		$modeConfig = $this->getModeConfigurations($cart, $modeId);
+		$modeConfig = $this->getConfigurations($cart, $modeId);
 		$modeConfig[$key] = $value;
 		$cart->setProperties($this->getModeKey($modeId), $modeConfig);
 	}
 	
 	/**
-	 * @param order_CartInfos $cart
+	 * @param order_CartInfo $cart
 	 * @param integer $modeId
 	 * @param string $key
 	 * @return mixed
 	 */
 	public function getConfiguration($cart, $modeId, $key)
 	{
-		$modeConfig = $this->getModeConfigurations($cart, $modeId);
-		return (isset($modeConfig['storeId'])) ? $modeConfig['storeId'] : null;
+		$modeConfig = $this->getConfigurations($cart, $modeId);
+		return (isset($modeConfig[$key])) ? $modeConfig[$key] : null;
 	}
 	
 	/**
-	 * @param order_CartInfos $cart
+	 * @param order_CartInfo $cart
 	 * @param string $modeId
+	 * @return array
 	 */
-	protected function getModeConfigurations($cart, $modeId)
+	protected function getConfigurations($cart, $modeId)
 	{
 		$modekey = $this->getModeKey($modeId);
 		return ($cart->hasProperties($modekey)) ? $cart->getProperties($modekey) : array();
 	}
 	
 	/**
-	 * @param order_CartInfos $cart
+	 * @param order_CartInfo $cart
 	 * @param string $modeId
 	 * @param array $modeConfig
 	 */
-	protected function setModeConfigurations($cart, $modeId, $modeConfig)
+	protected function setConfigurations($cart, $modeId, $modeConfig)
 	{
 		$modekey = $this->getModeKey($modeId);
 		$cart->setProperties($modekey, count($modeConfig) ? $modeConfig : null);
+	}
+	
+	/**
+	 * @param order_persistentdocument_order $order
+	 * @param integer $modeId
+	 * @param string $key
+	 * @return mixed
+	 */
+	public function getConfigurationOnOrder($order, $modeId, $key)
+	{
+		$modeConfig = $this->getConfigurationsOnOrder($order, $modeId);
+		return (isset($modeConfig[$key])) ? $modeConfig[$key] : null;
+	}
+	
+	/**
+	 * @param order_persistentdocument_order $order
+	 * @param string $modeId
+	 * @return array
+	 */
+	protected function getConfigurationsOnOrder($order, $modeId)
+	{
+		$modekey = $this->getModeKey($modeId);
+		$cartProperties = $order->getGlobalProperty(order_OrderService::PROPERTIES_CART_PROPERTIES);
+		if (!is_array($cartProperties) || !isset($cartProperties[$modekey])) { return array(); }
+		return $cartProperties[$modekey];
 	}
 	
 	/**
@@ -152,5 +177,23 @@ class featurepackb_ShippingModeConfigurationService extends BaseService
 	protected function getModeKey($modeId)
 	{
 		return 'shipping-configuration-' . $modeId;
+	}
+	
+	/**
+	 * @param order_CartInfo $cart
+	 * @param integer $modeId
+	 */
+	public function getCartLinesForMode($cart, $mode)
+	{
+		$lines = $cart->getCartLineArrayByShippingMode($mode);
+		if ($cart->canSelectShippingModeId() && $cart->getShippingModeId() == $mode->getId())
+		{
+			$shippingArray = $cart->getShippingArray();
+			foreach ($shippingArray[0]['lines'] as $lineNumber)
+			{
+				$lines[] = $cart->getCartLine($lineNumber);
+			}
+		}
+		return $lines;
 	}
 }
