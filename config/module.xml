@@ -3,7 +3,7 @@
 	<module>
 		<enabled>true</enabled>
 		<visible>false</visible>
-		<icon>package</icon>
+		<icon>feature-pack</icon>
 	</module>
 	<project>
 		<entry name="productListComparisonClass">catalog_SessionProductList</entry>
