@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<i18n baseKey="m.featurepackb.document.comparablepropertyfolder" lcid="en_GB">
-  <include id="m.generic.document.folder"/>
-  <key id="document-name">comparablepropertyfolder</key>
-</i18n>
