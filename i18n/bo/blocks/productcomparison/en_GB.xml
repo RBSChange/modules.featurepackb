@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.featurepackb.bo.blocks.productcomparison" lcid="en_GB">
+  <key id="comparableproperties">comparable properties</key>
+  <key id="comparableproperties-help">Select the comparable properties.</key>
+  <key id="restrictproductstocontext">restrict to the shelf's products</key>
+  <key id="restrictproductstocontext-help">Check the "yes" box to restrict the comparison list to the selected products that pertain to the current shelf or to one of its sub-shelves.</key>
+  <key id="showquantityselector">show the quantity selector</key>
+  <key id="showquantityselector-help">Shows or hides the quantity selector for each product. This selector will only be available to users with a browser that supports JavaScript.</key>
+  <key id="title">product comparison</key>
+</i18n>

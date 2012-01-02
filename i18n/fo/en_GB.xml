@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.featurepackb.fo" lcid="en_GB">
+  <key id="add-selection-to-cart">Add selection to the basket</key>
+  <key id="add-to-comparison-list">add to my comparison list</key>
+  <key id="add-to-comparison-list-help">Check the boxes of the products to add to your comparison list.</key>
+  <key id="add-to-comparisons">add to the comparisons</key>
+  <key id="clear-list">empty the list</key>
+  <key id="click-to-hide-full-description">click here to hide the complete description</key>
+  <key id="click-to-view-full-description">click here to show the whole description</key>
+  <key id="for-complete-order">for the whole order</key>
+  <key id="for-following-products">for the following products</key>
+  <key id="keep-only-checked">restrict the list to the selection</key>
+  <key id="no-rating">N/A</key>
+  <key id="no-review-yet">no comment</key>
+  <key id="no-selected-product">No products selected.</key>
+  <key id="product">product</key>
+  <key id="product-added-to-comparison-list">product added to your comparison list</key>
+  <key id="product-already-in-comparison-list">this product is already in your comparison list</key>
+  <key id="product-comparison">product comparison</key>
+  <key id="productlist-comparison-updated">Your comparison list has been successfully updated.</key>
+  <key id="remove-checked">remove the selection from the list</key>
+  <key id="remove-this-produit-from-list">remove this product from the list</key>
+  <key id="reviews">client ratings</key>
+  <key id="reviews-count">{count} ratings</key>
+  <key id="selection">selection</key>
+  <key id="warning-restricted-list">Warning, your selection is restricted to the products on this shelf.</key>
+</i18n>
